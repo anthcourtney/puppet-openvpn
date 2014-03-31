@@ -32,6 +32,10 @@
 #   Boolean.  Whether or not to bind to a specific port number
 #   Default: true
 #
+# [*nocache*]
+#   Boolean. Whether OpenVPN should cache askpass or auth-user-pass usernames/passwords in memory.
+#   Default: false
+#
 # [*persist_key*]
 #   Boolean.  Try to retain access to resources that may be unavailable
 #     because of privilege downgrades
@@ -110,6 +114,7 @@ define openvpn::client(
   $mute = '20',
   $mute_replay_warnings = true,
   $nobind = true,
+  $nocache = false,
   $persist_key = true,
   $persist_tun = true,
   $port = '1194',

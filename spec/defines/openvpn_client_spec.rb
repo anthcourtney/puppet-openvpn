@@ -62,6 +62,7 @@ describe 'openvpn::client', :type => :define do
       'mute'                  => 10,
       'mute_replay_warnings'  => false,
       'nobind'                => false,
+      'nocache'               => true,
       'persist_key'           => false,
       'persist_tun'           => false,
       'port'                  => '123',
@@ -83,6 +84,8 @@ describe 'openvpn::client', :type => :define do
     it { should contain_file('/etc/openvpn/test_server/download-configs/test_client/test_client.conf').with_content(/^resolv-retry\s+2m$/)}
     it { should contain_file('/etc/openvpn/test_server/download-configs/test_client/test_client.conf').with_content(/^verb\s+1$/)}
     it { should contain_file('/etc/openvpn/test_server/download-configs/test_client/test_client.conf').with_content(/^mute\s+10$/)}
+    it { should contain_file('/etc/openvpn/test_server/download-configs/test_client/test_client.conf').with_content(/^verb\s+1$/)}
+    it { should contain_file('/etc/openvpn/test_server/download-configs/test_client/test_client.conf').with_content(/^auth-nocache$/)}
   end
 
 end

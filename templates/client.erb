@@ -27,3 +27,6 @@ mute <%= scope.lookupvar('mute') %>
 <% if scope.lookupvar('pam') -%>
 auth-user-pass
 <% end -%>
+<% if scope.lookupvar('nocache') -%>
+auth-nocache
+<% end -%>
